@@ -46,3 +46,6 @@
 　メイン機能実装：10/11 - 12/15 〆切
 　β版をRUNTEQ内リリース（MVP）：12/31 〆切
 　本番リリース：1月末
+
+ ■画面繊維図
+ https://www.figma.com/file/mENzHUxEVQqXH5DaAcdhZr/Portfolio?node-id=0%3A1
