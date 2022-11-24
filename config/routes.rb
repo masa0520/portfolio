@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "top#index"
+  resources :restaurants
 end

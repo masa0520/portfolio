@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_142505) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_175945) do
   create_table "business_hours", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "day"
     t.integer "open"
@@ -54,6 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_142505) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "lat"
+    t.float "lng"
+    t.string "address"
   end
 
   create_table "restaurants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
