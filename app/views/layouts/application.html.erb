@@ -14,18 +14,15 @@
   <%= link_to "ひとりめし", root_path %>
   <div id="nav">
     <% if logged_in? %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout, data: { turbo_method: :delete } %>
+      <%= render 'shared/header' %>
     <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
+      <%= render 'shared/before_login_header' %>
     <% end %>
   </div>
     <%= yield %>
   <%= link_to "マップ検索", posts_path %>
   <p>ユーザー投稿検索</p>
   <%= link_to "投稿", new_post_path %>
-  <p>ひとり専用飲食店</p>
   <p>お気に入り</p>
   </body>
 </html>
