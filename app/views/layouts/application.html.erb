@@ -20,9 +20,8 @@
     <% end %>
   </div>
     <%= yield %>
-  <%= link_to "マップ検索", posts_path %>
-  <p>ユーザー投稿検索</p>
-  <%= link_to "投稿", new_post_path %>
-  <p>お気に入り</p>
+  <%= link_to (t'defaults.map'), posts_path %>
+  <%= link_to (t'defaults.post'), new_post_path %>
+  <%= (t'defaults.favorite') %>
   </body>
 </html>

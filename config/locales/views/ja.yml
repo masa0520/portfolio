@@ -1,0 +1,8 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    map: 'マップ'
+    post: '投稿'
+    favorite: 'お気に入り'
