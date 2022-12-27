@@ -8,8 +8,35 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :nickname, presence: true, length: { maximum: 255 }
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+
+#userオブジェクトのidとpostやlikeオブジェクトのuser_idが同じかどうかを判断
+def mine?(object)
+  object.user_id == id
+end
+
+#likes_postsテーブルにpostオブジェクトを追加する。
+#いいねを押したときに、いいねしたユーザーといいねされた投稿の情報が保存される。
+def like(post)
+  liked_posts << post
+end
+
+#likes_postsテーブルから引数のpostオブジェクトに該当するレコードを削除する。
+def unlike(post)
+  liked_posts.destroy(post)
+end
+
+#likes_postsテーブルに引数のpostオブジェクトに該当するレコードがあるかを判断する。
+def like?(post)
+  liked_posts.include?(post)
+end
+
+def liked?(post)
+  likes.exists?(post_id: post.id)
+end
 end

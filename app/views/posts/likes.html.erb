@@ -1,0 +1,8 @@
+<h1>Liked Posts</h1>
+<tbody>
+  <% @likes.each do |like| %>
+  <%= link_to like.title, post_path(like.id) %>
+<% end %>
+</tbody>
+</table>
+<%= link_to 'Back', posts_path %>
