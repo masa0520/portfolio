@@ -58,4 +58,9 @@
 
 <% @posts.each do |post| %>
   <%= link_to post.title, post_path(post) %>
+  <% if current_user.liked?(post) %>
+    <%= button_to 'UnLike', post_likes_path(post_id: post.id), method: :delete %>
+  <% else %>
+    <%= button_to 'Like', post_likes_path(post_id: post.id), method: :post %>
+  <% end %>
 <% end %>

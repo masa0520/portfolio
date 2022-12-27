@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to post_url(@post), success: "Post was successfully created."
     else
@@ -33,6 +33,10 @@ class PostsController < ApplicationController
     redirect_to posts_url, success: "Post was successfully destroyed."
   end
 
+  def likes 
+    @likes = current_user.liked_posts
+  end
+
   private
 
     def set_post
@@ -41,6 +45,6 @@ class PostsController < ApplicationController
 
 
     def post_params
-      params.require(:post).permit(:title, :body, :address, :lat, :lng)
+      params.require(:post).permit(:title, :body, :address, :lat, :lng, :user_id)
     end
 end
