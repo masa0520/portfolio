@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts do 
+    resources :reviews, only: [:edit, :update, :create, :destroy], shallow: :true
     resource :likes, only: %i[create destroy]
     collection do
       get 'likes'
