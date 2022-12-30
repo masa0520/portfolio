@@ -48,8 +48,23 @@
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+
+
+<!-- レビューフォーム -->
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %>
-  <%= link_to "Back to posts", posts_path %>
-  <%= button_to "Destroy this post", @post, method: :delete, data: { turbo: false } %>
+  <%= link_to "レビュー", new_post_review_path(@post.id) %>
+  <!-- レビュー -->
+  <% @reviews.each do |review| %>
+    <%= review.comment %>
+    <% if current_user.id == review.user_id %>
+      <%= button_to "Destroy this post", review_path(review), method: :delete, data: { turbo: false } %>
+    <% end %>
+  <% end %>
 </div>
+
+<% if current_user.id == @post.user_id %>
+  <div>
+    <%= link_to "Edit this post", edit_post_path(@post) %>
+    <%= button_to "Destroy this post", @post, method: :delete, data: { turbo: false } %>
+  </div>
+<% end %>

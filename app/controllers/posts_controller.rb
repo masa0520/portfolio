@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @reviews = @post.reviews.includes(:user).order(created_at: :desc)
   end
 
   def new

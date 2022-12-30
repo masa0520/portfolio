@@ -12,12 +12,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :favorites, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
 
 #userオブジェクトのidとpostやlikeオブジェクトのuser_idが同じかどうかを判断
-def mine?(object)
-  object.user_id == id
+def own?(object)
+  self.id == object.user_id
 end
 
 #likes_postsテーブルにpostオブジェクトを追加する。

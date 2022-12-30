@@ -1,0 +1,6 @@
+<%= form_with(model: [@post, @review], local: true) do |f| %>
+  <%= link_to @post.title, post_path(@post) %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <%= f.submit %>
+<% end %>
