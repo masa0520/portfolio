@@ -62,14 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_095256) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "rates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
-    t.float "rate", default: 0.0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "restaurants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "address"

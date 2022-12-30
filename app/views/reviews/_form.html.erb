@@ -1,0 +1,5 @@
+<%= form_with model: review, url: spot_reviews_path(post_id: post.id), local: true do |f| %>
+  <%= f.label :review %>
+  <%= f.text_area :review, placeholder: Comment.human_attribute_name(:post %>
+  <%= f.submit %>
+<% end %>
